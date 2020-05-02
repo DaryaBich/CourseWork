@@ -1,11 +1,7 @@
 package com.coursework.makegame.entities;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 @Data
-@EqualsAndHashCode
-public class PlayStatus { // приходит каждый раз после хода
+public class PlayStatus {
     private long userLocation;
     private long graphId;
 }
