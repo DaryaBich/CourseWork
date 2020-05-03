@@ -46,12 +46,12 @@ public class SearchBFSWayServiceImpl
         for (Long vertex : exits) {
             List<Long> searchedWay = bfs(vertices,
                     roomsWithFire, userLocation, vertex);
-            int counter = countVerticesNearFire(roomsNearFire,
-                    searchedWay);
+            int counter = countVerticesNearFire(
+                    roomsNearFire, searchedWay);
             if ((searchedWay.size() < shortestWay.size() ||
                     countRoomsNearFire - counter > 0 &&
-                    searchedWay.size() - shortestWay.size() < 3)
-                    &&
+                    searchedWay.size() - shortestWay.size()
+                            < 3) &&
                     searchedWay.size() > 0 ||
                     shortestWay.size() == 0) {
                 shortestWay = searchedWay;

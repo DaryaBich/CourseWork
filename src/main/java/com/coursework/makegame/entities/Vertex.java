@@ -15,13 +15,4 @@ public class Vertex {
     private boolean isFire;
     public Vertex() {
     }
-    public Vertex(long id, long graphId,
-                  List<Long> nearByVertex,
-                  boolean isExit, boolean isFire) {
-        this.id = id;
-        this.graphId = graphId;
-        this.nearByVertex = nearByVertex;
-        this.isExit = isExit;
-        this.isFire = isFire;
-    }
 }

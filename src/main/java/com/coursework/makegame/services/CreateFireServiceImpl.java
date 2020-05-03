@@ -63,7 +63,6 @@ public class CreateFireServiceImpl
             roomNumber = (long) (new Random())
                     .nextInt(vertices.size());
             if (canBeFire.contains(roomNumber) &&
-                    !exits.contains(roomNumber) &&
                     roomNumber != userLocation) {
                 return roomNumber;
             }
