@@ -7,7 +7,9 @@ import java.util.List;
 @Table(name = "vertex")
 public class Vertex {
     @Id
+    @GeneratedValue
     private long id;
+    private long localId;
     private long graphId;
     @ElementCollection
     private List<Long> nearByVertex;

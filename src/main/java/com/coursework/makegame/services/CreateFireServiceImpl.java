@@ -34,7 +34,7 @@ public class CreateFireServiceImpl
                 return null;
             }
             Vertex vertex = vertexRepository
-                    .findById(newFire);
+                    .findById(newFire, graphId);
             vertex.setFire(true);
             vertexRepository.save(vertex);
             return new Fire(Collections
