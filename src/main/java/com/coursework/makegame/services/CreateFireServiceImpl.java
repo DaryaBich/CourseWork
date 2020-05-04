@@ -31,7 +31,7 @@ public class CreateFireServiceImpl
                     exits, graph.getVertices(),
                     userLocation);
             if (newFire == -1){
-                return null;
+                return new Fire(new ArrayList<>());
             }
             Vertex vertex = vertexRepository
                     .findById(newFire);
@@ -40,7 +40,7 @@ public class CreateFireServiceImpl
             return new Fire(Collections
                     .singletonList(newFire));
         } else {
-            return null;
+            return new Fire(new ArrayList<>());
         }
     }
     @Override
