@@ -28,7 +28,7 @@ public class GraphServiceImpl implements GraphService {
                 startPlay.getVertexes());
         Graph graph =
                 new Graph((long) graphRepository
-                        .findGraphs().size() + 1,
+                        .findGraphs().size(),
                         startPlay.getVertexes());
         graphRepository.save(graph);
     }
