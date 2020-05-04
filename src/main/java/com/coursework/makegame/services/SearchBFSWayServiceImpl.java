@@ -33,21 +33,19 @@ public class SearchBFSWayServiceImpl
         Set<Long> exits = graphService.getExits(graph);
         return bfsSearch(graph.getVertices(),
                 exits, graphService.getVertexWithFire(graph),
-                userLocation, graphId);
+                userLocation);
     }
     private List<Long> bfsSearch(Set<Vertex> vertices,
                                  Set<Long> exits,
                                  Set<Long> roomsWithFire,
-                                 Long userLocation,
-                                 Long graphId) {
+                                 Long userLocation) {
         List<Long> shortestWay = new ArrayList<>();
         int countRoomsNearFire = 0;
         Set<Long> roomsNearFire = createFireService
                 .verticesNearFire(vertices,roomsWithFire);
         for (Long vertex : exits) {
             List<Long> searchedWay = bfs(vertices,
-                    roomsWithFire, userLocation, vertex,
-                    graphId);
+                    roomsWithFire, userLocation, vertex);
             int counter = countVerticesNearFire(
                     roomsNearFire, searchedWay);
             if ((searchedWay.size() < shortestWay.size() ||
@@ -65,7 +63,7 @@ public class SearchBFSWayServiceImpl
     private List<Long> bfs(Set<Vertex> vertices,
                            Set<Long> roomsWithFire,
                            Long userLocation,
-                           Long finish, Long graphId) {
+                           Long finish) {
         List<Long> way = new ArrayList<>();
         Map<Long, Long> distance = new HashMap<>();
         Map<Long, Long> parent = new HashMap<>();
@@ -82,7 +80,7 @@ public class SearchBFSWayServiceImpl
             for (Long v : vertex.getNearByVertex()) {
                 if (distance.get(v) >
                         distance.get(vertex.getId()) + 1 &&
-                        !vertexRepository.findById(v, graphId)
+                        !vertexRepository.findById(v)
                                 .isFire()) {
                     distance.put(v,
                             distance.get(

@@ -34,7 +34,7 @@ public class CreateFireServiceImpl
                 return null;
             }
             Vertex vertex = vertexRepository
-                    .findById(newFire, graphId);
+                    .findById(newFire);
             vertex.setFire(true);
             vertexRepository.save(vertex);
             return new Fire(Collections
@@ -63,7 +63,8 @@ public class CreateFireServiceImpl
             roomNumber = (long) (new Random())
                     .nextInt(vertices.size());
             if (canBeFire.contains(roomNumber) &&
-                    roomNumber != userLocation) {
+                    roomNumber != userLocation &&
+            !haveFire.contains(roomNumber)) {
                 return roomNumber;
             }
             if (accum > vertices.size() * 3) {
