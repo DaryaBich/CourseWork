@@ -66,4 +66,17 @@ public class GraphServiceImpl implements GraphService {
         });
         return exits;
     }
+
+    @Override
+    public boolean deleteGraph(Long graphId) {
+        Graph graph = graphRepository.findGraph(graphId);
+        if (graph != null){
+            graphRepository.delete(graph);
+            for (Vertex v:vertexRepository.findByGraphId(graphId)) {
+                vertexRepository.delete(v);
+            }
+            return true;
+        }
+        else return false;
+    }
 }

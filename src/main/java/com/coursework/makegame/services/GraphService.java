@@ -9,4 +9,5 @@ public interface GraphService {
     void createGraph(StartPlay startPlay);
     Set<Long> getVertexWithFire(Graph graph);
     Set<Long> getExits(Graph graph);
+    boolean deleteGraph(Long graphId);
 }

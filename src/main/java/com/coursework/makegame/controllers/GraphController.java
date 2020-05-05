@@ -22,4 +22,11 @@ public class GraphController {
         return ResponseEntity.ok().body(graphService
                 .getGraph(graphId));
     }
+    @RequestMapping(value = "/deleteMap/{graphId}",
+            method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteMap(
+            @PathVariable(value = "graphId") Long graphId) {
+        return ResponseEntity.ok().body(graphService
+                .deleteGraph(graphId));
+    }
 }
