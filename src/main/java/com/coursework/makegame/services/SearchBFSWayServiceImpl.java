@@ -99,7 +99,8 @@ public class SearchBFSWayServiceImpl
         }
         return way;
     }
-    private int countVerticesNearFire(Set<Long> nearFire, List<Long> elements){
+    private int countVerticesNearFire(Set<Long> nearFire,
+                                      List<Long> elements){
         int counter = 0;
         for (Long vertex:elements) {
             if (nearFire.contains(vertex)){

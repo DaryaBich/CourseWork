@@ -72,7 +72,8 @@ public class GraphServiceImpl implements GraphService {
         Graph graph = graphRepository.findGraph(graphId);
         if (graph != null){
             graphRepository.delete(graph);
-            for (Vertex v:vertexRepository.findByGraphId(graphId)) {
+            for (Vertex v:vertexRepository
+                    .findByGraphId(graphId)) {
                 vertexRepository.delete(v);
             }
             return true;

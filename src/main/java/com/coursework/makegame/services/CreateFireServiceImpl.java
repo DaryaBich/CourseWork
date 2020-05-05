@@ -59,9 +59,11 @@ public class CreateFireServiceImpl
         }
         long roomNumber;
         int accum = 0;
+        List<Vertex> vertexList = (new ArrayList<>());
+        vertexList.addAll(vertices);
         do {
-            roomNumber = (long) (new Random())
-                    .nextInt(vertices.size());
+            roomNumber = vertexList.get((int) (new Random())
+                    .nextInt(vertexList.size())).getId();
             if (canBeFire.contains(roomNumber) &&
                     roomNumber != userLocation &&
             !haveFire.contains(roomNumber)) {

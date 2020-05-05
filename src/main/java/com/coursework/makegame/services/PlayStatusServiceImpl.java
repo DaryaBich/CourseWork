@@ -19,7 +19,8 @@ public class PlayStatusServiceImpl
     }
     public UpdateStatus updatingStatus(
             PlayStatus playStatus) {
-        if (graphRepository.findGraph(playStatus.getGraphId())!=null){
+        if (graphRepository.findGraph(
+                playStatus.getGraphId())!=null){
             List<Long> way = searchWayService
                     .makeWay(playStatus.getGraphId(),
                             playStatus.getUserLocation());
