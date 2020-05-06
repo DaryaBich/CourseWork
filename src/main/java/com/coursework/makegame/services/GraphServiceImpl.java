@@ -11,6 +11,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation
         .Autowired;
 import org.springframework.stereotype.Service;
+
+import java.beans.Statement;
+import java.sql.ResultSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -72,10 +75,10 @@ public class GraphServiceImpl implements GraphService {
         Graph graph = graphRepository.findGraph(graphId);
         if (graph != null){
             graphRepository.delete(graph);
-            for (Vertex v:vertexRepository
-                    .findByGraphId(graphId)) {
-                vertexRepository.delete(v);
-            }
+                for (Vertex v:vertexRepository
+                        .findByGraphId(graphId)) {
+                    vertexRepository.delete(v);
+                }
             return true;
         }
         else return false;
